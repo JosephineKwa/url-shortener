@@ -34,7 +34,7 @@ exp: Number (Optional)
 Creates a shortened URL object for the URL `https://www.google.com`
 that expires in 100 seconds.
 ```
-curl --data "url=https%3A%2F%2Fwww.google.com&exp=100" http://api.urlshortener.com/urls
+curl --header "Content-Type: application/json" --request POST --data '{"url":"https://www.google.com","exp":"100"}' http://api.urlshortener.com/urls
 ```
 
 ### Short URL expansion: `GET /urls?first&valid&short={short}`
