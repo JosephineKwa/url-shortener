@@ -23,6 +23,7 @@ The docker images for the service(tagged v1.0.0 and v1.0.1) are located in the c
 
 ## APIs to Test
 Try it out in the browser at http://zen.xyz
+
 The following services are accessible at the endpoint: `http://zen.xyz/api`
 ### Short URL creation: `POST /urls`
 Creates a single shortened URL object with the specified URL and expiry duration (in seconds). Returns the created URL object containing the shortened URL and other related data.
@@ -51,7 +52,7 @@ Run `./switch-blue.sh` to switch to the blue(v1.0.0) deployment.
 
 Similarly, run `./switch-green.sh` to switch to the green(v1.0.1) deployment.
 
-Use the following endpoint to check the version when switching between the respective deployments: http://api.urlshortener.com/version
+Use the following endpoint to check the version when switching between the respective deployments: http://zen.xyz/api/version
 
 ## Logging
 The logging merchanism runs on an EFK stack and can be accessed through Kibana dashboard using the following command.
