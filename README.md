@@ -1,5 +1,5 @@
 # URL Shortener
-Simple REST API service to shorten URLs and retrieve original URLs. Built using node.js and express.js and configured to run on a local minikube instance.
+Simple REST API service to shorten URLs and retrieve original URLs. Built using node.js and express.js and configured to run on a local minikube cluster.
 
 ## How to Install and Run
 Prerequisites: Requires kubectl ([installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl)) and minikube ([installation instructions](https://kubernetes.io/docs/tasks/tools/install-minikube/#install-minikube)) to be installed.
@@ -16,7 +16,7 @@ The script executes the following:
 5. Creates services and pods for the EFK(Elasticsearch + Fluentd + Kibana) logging stack
 6. Appends a domain name mapping to `/etc/hosts` for the domain name `api.urlshortener.com`
 
-Note: After the script has completed, you may need to wait a while longer(~5 min or more) for the service to be completely deployed before proceeding.
+Note: After the script has completed, you may need to wait a while longer(~5 min or more) for the pods to be completely deployed before proceeding.
 
 ## Docker Image
 The docker images for the service(tagged v1.0.0 and v1.0.1) are located in the container repository `ninjaonions/urlserver`, viewable at [this link](https://cloud.docker.com/repository/docker/ninjaonions/urlserver/general).
@@ -46,15 +46,15 @@ curl http://api.urlshortener.com/urls?first&valid&short=https%3A%2F%2Fzen.xyz%2F
 ```
 
 ## Testing Blue Green Deployment
-Run `./switch-blue.sh` to switch to the blue(v1.0.0) deployment.
+Run `./switch-blue.sh` to switch to the blue(v1.0.0) deployment
 
-Similarly, run `./switch-green.sh` to switch to the green(v1.0.1) deployment.
+Similarly, run `./switch-green.sh` to switch to the green(v1.0.1) deployment
 
-Use the following endpoint to check the version for the respective deployments: http://api.urlshortener.com/version
+Use the following endpoint to check the version when switching between the respective deployments: http://api.urlshortener.com/version
 
 ## Logging
-The logging services run on an EFK stack and can be accessed through Kibana dashboard using the following command
+The logging merchanism runs on an EFK stack and can be accessed through Kibana dashboard using the following command
 ```
 minikube addons open efk
 ```
-This will open a Kibana dashboard in a browser containing logs from all namespaces in the Kubernetes cluster.
+This will open a Kibana dashboard in a browser containing logs from all namespaces in the Kubernetes cluster
