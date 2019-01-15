@@ -19,7 +19,7 @@ The script executes the following:
 **Note:** After the script has completed, you may need to wait a while longer(~5 min or more) for the pods to be completely deployed before proceeding.
 
 ## Docker Image
-The docker images for the service(tagged v1.0.0 and v1.0.1) are located in the container repository `ninjaonions/urlserver`, viewable at [this link](https://cloud.docker.com/repository/docker/ninjaonions/urlserver/general).
+The docker images for the service(tagged v1.0.0 and v1.0.1) are located in the container repositories `ninjaonions/urlserver` and `ninjaonions/uiserver`, viewable at [this link](https://cloud.docker.com/repository/docker/ninjaonions/urlserver/general) and [this link](https://cloud.docker.com/repository/docker/ninjaonions/uiserver/general).
 
 ## APIs to Test
 Try it out in the browser at http://zen.xyz
