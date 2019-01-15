@@ -14,7 +14,7 @@ The script executes the following:
 3. Creates a blue(v1.0.0) and green(v1.0.1) deployment for Blue Green Deployment testing
 4. Creates an ingress service to handle requests to some IP address or domain name
 5. Creates services and pods for the EFK(Elasticsearch + Fluentd + Kibana) logging stack
-6. Appends a domain name mapping to `/etc/hosts` for the domain name `zen.xyz`
+6. Appends a domain name mapping to `/etc/hosts` for the domain name `zen.xyz` and `urlshortener.com`
 
 **Note:** After the script has completed, you may need to wait a while longer(~5 min or more) for the pods to be completely deployed before proceeding.
 
