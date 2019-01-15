@@ -24,7 +24,7 @@ The docker images for the service(tagged v1.0.0 and v1.0.1) are located in the c
 ## APIs to Test
 Try it out in the browser at http://zen.xyz
 
-The following services are accessible at the endpoint: `http://zen.xyz/api`
+The following services are accessible at the endpoint: `http://urlshortener.com/api`
 ### Short URL creation: `POST /urls`
 Creates a single shortened URL object with the specified URL and expiry duration (in seconds). Returns the created URL object containing the shortened URL and other related data.
 #### Body
@@ -36,7 +36,7 @@ exp: Number (Optional)
 Creates a shortened URL object for the URL `https://www.google.com`
 that expires in 100 seconds.
 ```
-curl --header "Content-Type: application/json" --request POST --data '{"url":"https://www.google.com","exp":"100"}' http://zen.xyz/api/urls
+curl --header "Content-Type: application/json" --request POST --data '{"url":"https://www.google.com","exp":"100"}' http://urlshortener.com/api/urls
 ```
 
 ### Short URL expansion: `GET /urls?first&valid&short={short}`
@@ -44,7 +44,7 @@ Returns a single non-expired URL object with the specified shortened URL `{short
 #### Example:
 Returns the URL object for the shortened URL `https://zen.xyz/ulcgPy2em`
 ```
-curl http://zen.xyz/api/urls?first&valid&short=https%3A%2F%2Fzen.xyz%2FulcgPy2em
+curl http://urlshortener.com/api/urls?first&valid&short=https%3A%2F%2Fzen.xyz%2FulcgPy2em
 ```
 
 ## Testing Blue Green Deployment
@@ -52,7 +52,7 @@ Run `./switch-blue.sh` to switch to the blue(v1.0.0) deployment.
 
 Similarly, run `./switch-green.sh` to switch to the green(v1.0.1) deployment.
 
-Use the following endpoint to check the version when switching between the respective deployments: http://zen.xyz/api/version
+Use the following endpoint to check the version when switching between the respective deployments: http://urlshortener.com/api/version
 
 ## Logging
 The logging merchanism runs on an EFK stack and can be accessed through Kibana dashboard using the following command.
