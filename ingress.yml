@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: url-server-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  backend:
+    serviceName: url-server-service
+    servicePort: 3000
+  rules:
+  - host: api.urlshortener.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: url-server-service
+          servicePort: 3000
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: url-server-service
+          servicePort: 3000

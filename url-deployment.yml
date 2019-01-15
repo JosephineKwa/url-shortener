@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: url-server-deployment-${VERSION}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: url-server
+      version: ${VERSION}
+  template:
+    metadata:
+      labels:
+        app: url-server
+        version: ${VERSION}
+    spec:
+      containers:
+      - name: url-server-container
+        imagePullPolicy: Always
+        image: ninjaonions/urlserver:${VERSION}
+        env:
+          - name: VERSION
+            value: ${VERSION}
+          - name: URL_SERVER_PORT
+            value: "31000"
+          - name: DB_SERVER_ALIAS
+            value: db-server-service
+          - name: DB_SERVER_PORT
+            value: "3000"

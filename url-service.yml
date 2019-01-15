@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: url-server-service
+spec:
+  selector:
+    app: url-server
+    version: ${VERSION}
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 31000

@@ -1,0 +1,13 @@
+{
+  "name": "url-service",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^5.4.3",
+    "shortid": "^2.2.14",
+    "winston": "^3.0.0",
+    "express-winston": "^3.0.0"
+  }
+}

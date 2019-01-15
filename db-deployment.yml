@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-server
+  template:
+    metadata:
+      labels:
+        app: db-server
+    spec:
+      containers:
+      - name: db-server-container
+        image: mongo
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: db-server-service
+spec:
+  selector:
+    app: db-server
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 27017
