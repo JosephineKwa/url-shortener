@@ -1,0 +1,10 @@
+{
+  "name": "url-service",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  }
+}

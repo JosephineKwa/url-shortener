@@ -1,10 +1,11 @@
 const express = require('express');
+const cors = require('cors')
 const expressWinston = require('express-winston');
 const winston = require('winston');
 const bodyParser = require('body-parser');
-const shortid = require('shortid');
+const shortidGen = require('shortid');
 const app = express();
-
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -44,19 +45,19 @@ app.post('/urls', (req, res) => {
       return Promise.reject('No available URLs at the moment');
     }
 
-    const short = `${common.SHORT_DOMAIN}${shortid.generate()}`;
-    return UrlModel.findOne({ short })
+    const shortid = shortidGen.generate();
+    return UrlModel.findOne({ shortid })
         .then((url) => {
           if (url) {
             return retryGetUrl(count - 1);
           }
-          return short;
+          return shortid;
         });
   }
 
   retryGetUrl(common.NUM_URL_RETRIES)
-      .then((short) => {
-        const url = new UrlModel({ original, short, expiryTime });
+      .then((shortid) => {
+        const url = new UrlModel({ original, shortid, expiryTime });
         return url.save();
       }).then((url) => {
         res.status(201).json({ url });
@@ -67,18 +68,23 @@ app.post('/urls', (req, res) => {
 
 app.get('/urls', (req, res) => {
   const query = req.query;
-  const short = query.short;
+  const shortid = query.shortid;
   const isSingle = query.first || query.first === '';
   const isValid = query.valid || query.valid === '';
 
-  const condition = {};
-
-  if (short) {
-    condition.short = short;
+  const and = [];
+  if (shortid) {
+    and.push({ shortid: shortid });
   }
 
   if (isValid) {
-    condition.expiresAt = { $gt: new Date() };
+    and.push({ $or: [{ expiresAt: { $gt: new Date() } }, { expiryTime: -1 }] });
+  }
+
+  const condition = {};
+
+  if (and.length > 0) {
+    condition.$and = and;
   }
 
   UrlModel.find(condition)

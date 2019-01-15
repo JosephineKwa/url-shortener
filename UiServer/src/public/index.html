@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>XYZEN</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div id="status-success" class="alert alert-success d-none" role="alert">
+            <strong>Successfully shortened URL!</strong>
+            <button type="button" class="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="input-group">
+            <input id="exp-input" type="number" min="-1" step="1" class="form-control col-3" placeholder="Expiry (in seconds)">
+            <input id="url-input" type="text" class="form-control col-9" placeholder="Enter a URL to shorten">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="shorten-button">SHORTEN</button>
+            </div>
+          </div>
+          <div>
+            <ul id="result" class="list-group">
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

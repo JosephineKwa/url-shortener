@@ -6,13 +6,20 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   backend:
-    serviceName: url-server-service
+    serviceName: ui-server-service
     servicePort: 3000
   rules:
-  - host: api.urlshortener.com
+  - host: zen.xyz
     http:
       paths:
       - path: /
+        backend:
+          serviceName: ui-server-service
+          servicePort: 3000
+  - host: zen.xyz
+    http:
+      paths:
+      - path: /api
         backend:
           serviceName: url-server-service
           servicePort: 3000
@@ -20,5 +27,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: url-server-service
+          serviceName: ui-server-service
           servicePort: 3000

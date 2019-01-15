@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ui-server-service
+spec:
+  selector:
+    app: ui-server
+    version: ${VERSION}
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 31001

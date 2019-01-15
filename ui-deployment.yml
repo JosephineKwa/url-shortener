@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui-server-deployment-${VERSION}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ui-server
+      version: ${VERSION}
+  template:
+    metadata:
+      labels:
+        app: ui-server
+        version: ${VERSION}
+    spec:
+      containers:
+      - name: ui-server-container
+        imagePullPolicy: Always
+        image: ninjaonions/uiserver:${VERSION}
+        env:
+          - name: VERSION
+            value: ${VERSION}
+          - name: UI_SERVER_PORT
+            value: "31001"

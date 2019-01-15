@@ -5,7 +5,7 @@ const urlSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   modifiedAt: { type: Date, default: Date.now },
   original: { type: String, required: true },
-  short: { type: String, required: true, unique: true },
+  shortid: { type: String, required: true, unique: true },
   expiresAt: {
     type: Date, default: function() {
       if (this.expiryTime === -1) {
