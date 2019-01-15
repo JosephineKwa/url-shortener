@@ -22,6 +22,7 @@ The script executes the following:
 The docker images for the service(tagged v1.0.0 and v1.0.1) are located in the container repository `ninjaonions/urlserver`, viewable at [this link](https://cloud.docker.com/repository/docker/ninjaonions/urlserver/general).
 
 ## APIs to Test
+Try it out in the browser at http://zen.xyz
 The following services are accessible at the endpoint: `http://zen.xyz/api`
 ### Short URL creation: `POST /urls`
 Creates a single shortened URL object with the specified URL and expiry duration (in seconds). Returns the created URL object containing the shortened URL and other related data.
