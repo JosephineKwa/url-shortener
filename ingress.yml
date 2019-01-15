@@ -16,7 +16,7 @@ spec:
         backend:
           serviceName: ui-server-service
           servicePort: 3000
-  - host: zen.xyz
+  - host: urlshortener.com
     http:
       paths:
       - path: /api

@@ -20,4 +20,5 @@ kubectl apply -f efk/kibana-rc.yaml
 kubectl apply -f efk/kibana-svc.yaml
 
 sudo echo "$(minikube ip) zen.xyz" >> "/etc/hosts"
+sudo echo "$(minikube ip) urlshortener.com" >> "/etc/hosts"
 

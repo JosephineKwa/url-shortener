@@ -6,7 +6,7 @@ $(document).ready(function () {
   $("#shorten-button").click(function() {
     var url = $("#url-input").val();
     var exp = $("#exp-input").val() === "" ? 86400 : Math.floor($("#exp-input").val());
-    $.post("http://http://zen.xyz/api/urls", { url: url, exp: exp },
+    $.post("http://urlshortener.com/api/urls", { url: url, exp: exp },
     function(data, status, xhr) {
       if (xhr.status !== 201) {
         
