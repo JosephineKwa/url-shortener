@@ -15,7 +15,8 @@ $(document).ready(function () {
       $("#url-input").val("");
       $("#exp-input").val("");
       $("#status-success").removeClass("d-none");
-      $("#result").append('<li class="list-group-item">http://zen.xyz/' + data.url.shortid + '</li>');
+      var shortUrl = "http://zen.xyz/" + data.url.shortid;
+      $("#result").append('<li class="list-group-item"><a href="' + shortUrl + '">' + shortUrl + '</a> (' + url + ')</li>');
     });
   });
 });
