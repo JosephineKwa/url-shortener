@@ -26,11 +26,11 @@ app.use(expressWinston.logger({
   )
 }));
 
-app.get('/version', (req, res) => {
+app.get('/api/version', (req, res) => {
   res.status(200).json({ version });
 });
 
-app.post('/urls', (req, res) => {
+app.post('/api/urls', (req, res) => {
   const request = Object.assign({}, req.body);
 
   const original = request.url;
@@ -66,7 +66,7 @@ app.post('/urls', (req, res) => {
       });
 });
 
-app.get('/urls', (req, res) => {
+app.get('/api/urls', (req, res) => {
   const query = req.query;
   const shortid = query.shortid;
   const isSingle = query.first || query.first === '';
