@@ -7,7 +7,7 @@ app.get('/:shortid', (req, res) => {
   const shortid = req.params.shortid;
 
   const options = {
-    url: `http://urlshortener.com/api/urls?first&valid&shortid=${shortid}`
+    url: `http://${process.env.URL_SERVER_ALIAS}:${process.env.URL_SERVER_PORT}/api/urls?first&valid&shortid=${shortid}`
   }
 
   return request.get(options)
