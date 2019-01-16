@@ -23,3 +23,7 @@ spec:
             value: ${VERSION}
           - name: UI_SERVER_PORT
             value: "31001"
+          - name: URL_SERVER_PORT
+            value: "31000"
+          - name: UI_SERVER_ALIAS
+            value: url-server-service
